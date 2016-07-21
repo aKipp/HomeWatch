@@ -24,7 +24,6 @@
 		FB20661D1D40B25000840CCC /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB20661C1D40B25000840CCC /* GlanceController.swift */; };
 		FB20661F1D40B25000840CCC /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB20661E1D40B25000840CCC /* ComplicationController.swift */; };
 		FB2066211D40B25000840CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2066201D40B25000840CCC /* Assets.xcassets */; };
-		FB2066371D40B48A00840CCC /* test in Resources */ = {isa = PBXBuildFile; fileRef = FB2066361D40B48A00840CCC /* test */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,7 +109,6 @@
 		FB20661E1D40B25000840CCC /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		FB2066201D40B25000840CCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB2066221D40B25000840CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB2066361D40B48A00840CCC /* test */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +176,6 @@
 				FB2065E21D40B25000840CCC /* Assets.xcassets */,
 				FB2065E41D40B25000840CCC /* LaunchScreen.storyboard */,
 				FB2065E71D40B25000840CCC /* Info.plist */,
-				FB2066361D40B48A00840CCC /* test */,
 			);
 			path = HomeWatch;
 			sourceTree = "<group>";
@@ -382,7 +379,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB2066371D40B48A00840CCC /* test in Resources */,
 				FB2065E61D40B25000840CCC /* LaunchScreen.storyboard in Resources */,
 				FB2065E31D40B25000840CCC /* Assets.xcassets in Resources */,
 				FB2065E11D40B25000840CCC /* Main.storyboard in Resources */,
