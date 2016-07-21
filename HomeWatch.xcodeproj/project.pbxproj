@@ -1,0 +1,782 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB2065DC1D40B25000840CCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2065DB1D40B25000840CCC /* AppDelegate.swift */; };
+		FB2065DE1D40B25000840CCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2065DD1D40B25000840CCC /* ViewController.swift */; };
+		FB2065E11D40B25000840CCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB2065DF1D40B25000840CCC /* Main.storyboard */; };
+		FB2065E31D40B25000840CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2065E21D40B25000840CCC /* Assets.xcassets */; };
+		FB2065E61D40B25000840CCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB2065E41D40B25000840CCC /* LaunchScreen.storyboard */; };
+		FB2065F11D40B25000840CCC /* HomeWatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2065F01D40B25000840CCC /* HomeWatchTests.swift */; };
+		FB2065FC1D40B25000840CCC /* HomeWatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2065FB1D40B25000840CCC /* HomeWatchUITests.swift */; };
+		FB2066011D40B25000840CCC /* HomeWatch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FB2066001D40B25000840CCC /* HomeWatch WatchKit App.app */; };
+		FB2066071D40B25000840CCC /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB2066051D40B25000840CCC /* Interface.storyboard */; };
+		FB2066091D40B25000840CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2066081D40B25000840CCC /* Assets.xcassets */; };
+		FB2066101D40B25000840CCC /* HomeWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FB20660F1D40B25000840CCC /* HomeWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FB2066171D40B25000840CCC /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2066161D40B25000840CCC /* InterfaceController.swift */; };
+		FB2066191D40B25000840CCC /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2066181D40B25000840CCC /* ExtensionDelegate.swift */; };
+		FB20661B1D40B25000840CCC /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB20661A1D40B25000840CCC /* NotificationController.swift */; };
+		FB20661D1D40B25000840CCC /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB20661C1D40B25000840CCC /* GlanceController.swift */; };
+		FB20661F1D40B25000840CCC /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB20661E1D40B25000840CCC /* ComplicationController.swift */; };
+		FB2066211D40B25000840CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2066201D40B25000840CCC /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB2065ED1D40B25000840CCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB2065D01D40B25000840CCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB2065D71D40B25000840CCC;
+			remoteInfo = HomeWatch;
+		};
+		FB2065F81D40B25000840CCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB2065D01D40B25000840CCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB2065D71D40B25000840CCC;
+			remoteInfo = HomeWatch;
+		};
+		FB2066021D40B25000840CCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB2065D01D40B25000840CCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB2065FF1D40B25000840CCC;
+			remoteInfo = "HomeWatch WatchKit App";
+		};
+		FB2066111D40B25000840CCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB2065D01D40B25000840CCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB20660E1D40B25000840CCC;
+			remoteInfo = "HomeWatch WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FB2066281D40B25000840CCC /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FB2066101D40B25000840CCC /* HomeWatch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB20662C1D40B25000840CCC /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				FB2066011D40B25000840CCC /* HomeWatch WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FB2065D81D40B25000840CCC /* HomeWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2065DB1D40B25000840CCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB2065DD1D40B25000840CCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB2065E01D40B25000840CCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FB2065E21D40B25000840CCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB2065E51D40B25000840CCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FB2065E71D40B25000840CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB2065EC1D40B25000840CCC /* HomeWatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeWatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2065F01D40B25000840CCC /* HomeWatchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWatchTests.swift; sourceTree = "<group>"; };
+		FB2065F21D40B25000840CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB2065F71D40B25000840CCC /* HomeWatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeWatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2065FB1D40B25000840CCC /* HomeWatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWatchUITests.swift; sourceTree = "<group>"; };
+		FB2065FD1D40B25000840CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB2066001D40B25000840CCC /* HomeWatch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HomeWatch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2066061D40B25000840CCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		FB2066081D40B25000840CCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB20660A1D40B25000840CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB20660F1D40B25000840CCC /* HomeWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HomeWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB2066151D40B25000840CCC /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		FB2066161D40B25000840CCC /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		FB2066181D40B25000840CCC /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		FB20661A1D40B25000840CCC /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		FB20661C1D40B25000840CCC /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		FB20661E1D40B25000840CCC /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		FB2066201D40B25000840CCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB2066221D40B25000840CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB2065D51D40B25000840CCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2065E91D40B25000840CCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2065F41D40B25000840CCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB20660C1D40B25000840CCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB2065CF1D40B25000840CCC = {
+			isa = PBXGroup;
+			children = (
+				FB2065DA1D40B25000840CCC /* HomeWatch */,
+				FB2065EF1D40B25000840CCC /* HomeWatchTests */,
+				FB2065FA1D40B25000840CCC /* HomeWatchUITests */,
+				FB2066041D40B25000840CCC /* HomeWatch WatchKit App */,
+				FB2066131D40B25000840CCC /* HomeWatch WatchKit Extension */,
+				FB2065D91D40B25000840CCC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB2065D91D40B25000840CCC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB2065D81D40B25000840CCC /* HomeWatch.app */,
+				FB2065EC1D40B25000840CCC /* HomeWatchTests.xctest */,
+				FB2065F71D40B25000840CCC /* HomeWatchUITests.xctest */,
+				FB2066001D40B25000840CCC /* HomeWatch WatchKit App.app */,
+				FB20660F1D40B25000840CCC /* HomeWatch WatchKit Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB2065DA1D40B25000840CCC /* HomeWatch */ = {
+			isa = PBXGroup;
+			children = (
+				FB2065DB1D40B25000840CCC /* AppDelegate.swift */,
+				FB2065DD1D40B25000840CCC /* ViewController.swift */,
+				FB2065DF1D40B25000840CCC /* Main.storyboard */,
+				FB2065E21D40B25000840CCC /* Assets.xcassets */,
+				FB2065E41D40B25000840CCC /* LaunchScreen.storyboard */,
+				FB2065E71D40B25000840CCC /* Info.plist */,
+			);
+			path = HomeWatch;
+			sourceTree = "<group>";
+		};
+		FB2065EF1D40B25000840CCC /* HomeWatchTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB2065F01D40B25000840CCC /* HomeWatchTests.swift */,
+				FB2065F21D40B25000840CCC /* Info.plist */,
+			);
+			path = HomeWatchTests;
+			sourceTree = "<group>";
+		};
+		FB2065FA1D40B25000840CCC /* HomeWatchUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FB2065FB1D40B25000840CCC /* HomeWatchUITests.swift */,
+				FB2065FD1D40B25000840CCC /* Info.plist */,
+			);
+			path = HomeWatchUITests;
+			sourceTree = "<group>";
+		};
+		FB2066041D40B25000840CCC /* HomeWatch WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				FB2066051D40B25000840CCC /* Interface.storyboard */,
+				FB2066081D40B25000840CCC /* Assets.xcassets */,
+				FB20660A1D40B25000840CCC /* Info.plist */,
+			);
+			path = "HomeWatch WatchKit App";
+			sourceTree = "<group>";
+		};
+		FB2066131D40B25000840CCC /* HomeWatch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				FB2066161D40B25000840CCC /* InterfaceController.swift */,
+				FB2066181D40B25000840CCC /* ExtensionDelegate.swift */,
+				FB20661A1D40B25000840CCC /* NotificationController.swift */,
+				FB20661C1D40B25000840CCC /* GlanceController.swift */,
+				FB20661E1D40B25000840CCC /* ComplicationController.swift */,
+				FB2066201D40B25000840CCC /* Assets.xcassets */,
+				FB2066221D40B25000840CCC /* Info.plist */,
+				FB2066141D40B25000840CCC /* Supporting Files */,
+			);
+			path = "HomeWatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		FB2066141D40B25000840CCC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB2066151D40B25000840CCC /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB2065D71D40B25000840CCC /* HomeWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB20662D1D40B25000840CCC /* Build configuration list for PBXNativeTarget "HomeWatch" */;
+			buildPhases = (
+				FB2065D41D40B25000840CCC /* Sources */,
+				FB2065D51D40B25000840CCC /* Frameworks */,
+				FB2065D61D40B25000840CCC /* Resources */,
+				FB20662C1D40B25000840CCC /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB2066031D40B25000840CCC /* PBXTargetDependency */,
+			);
+			name = HomeWatch;
+			productName = HomeWatch;
+			productReference = FB2065D81D40B25000840CCC /* HomeWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB2065EB1D40B25000840CCC /* HomeWatchTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB2066301D40B25000840CCC /* Build configuration list for PBXNativeTarget "HomeWatchTests" */;
+			buildPhases = (
+				FB2065E81D40B25000840CCC /* Sources */,
+				FB2065E91D40B25000840CCC /* Frameworks */,
+				FB2065EA1D40B25000840CCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB2065EE1D40B25000840CCC /* PBXTargetDependency */,
+			);
+			name = HomeWatchTests;
+			productName = HomeWatchTests;
+			productReference = FB2065EC1D40B25000840CCC /* HomeWatchTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FB2065F61D40B25000840CCC /* HomeWatchUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB2066331D40B25000840CCC /* Build configuration list for PBXNativeTarget "HomeWatchUITests" */;
+			buildPhases = (
+				FB2065F31D40B25000840CCC /* Sources */,
+				FB2065F41D40B25000840CCC /* Frameworks */,
+				FB2065F51D40B25000840CCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB2065F91D40B25000840CCC /* PBXTargetDependency */,
+			);
+			name = HomeWatchUITests;
+			productName = HomeWatchUITests;
+			productReference = FB2065F71D40B25000840CCC /* HomeWatchUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		FB2065FF1D40B25000840CCC /* HomeWatch WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB2066291D40B25000840CCC /* Build configuration list for PBXNativeTarget "HomeWatch WatchKit App" */;
+			buildPhases = (
+				FB2065FE1D40B25000840CCC /* Resources */,
+				FB2066281D40B25000840CCC /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB2066121D40B25000840CCC /* PBXTargetDependency */,
+			);
+			name = "HomeWatch WatchKit App";
+			productName = "HomeWatch WatchKit App";
+			productReference = FB2066001D40B25000840CCC /* HomeWatch WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		FB20660E1D40B25000840CCC /* HomeWatch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB2066251D40B25000840CCC /* Build configuration list for PBXNativeTarget "HomeWatch WatchKit Extension" */;
+			buildPhases = (
+				FB20660B1D40B25000840CCC /* Sources */,
+				FB20660C1D40B25000840CCC /* Frameworks */,
+				FB20660D1D40B25000840CCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HomeWatch WatchKit Extension";
+			productName = "HomeWatch WatchKit Extension";
+			productReference = FB20660F1D40B25000840CCC /* HomeWatch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB2065D01D40B25000840CCC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = MPMI;
+				TargetAttributes = {
+					FB2065D71D40B25000840CCC = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					FB2065EB1D40B25000840CCC = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = FB2065D71D40B25000840CCC;
+					};
+					FB2065F61D40B25000840CCC = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = FB2065D71D40B25000840CCC;
+					};
+					FB2065FF1D40B25000840CCC = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					FB20660E1D40B25000840CCC = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = FB2065D31D40B25000840CCC /* Build configuration list for PBXProject "HomeWatch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB2065CF1D40B25000840CCC;
+			productRefGroup = FB2065D91D40B25000840CCC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB2065D71D40B25000840CCC /* HomeWatch */,
+				FB2065EB1D40B25000840CCC /* HomeWatchTests */,
+				FB2065F61D40B25000840CCC /* HomeWatchUITests */,
+				FB2065FF1D40B25000840CCC /* HomeWatch WatchKit App */,
+				FB20660E1D40B25000840CCC /* HomeWatch WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB2065D61D40B25000840CCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2065E61D40B25000840CCC /* LaunchScreen.storyboard in Resources */,
+				FB2065E31D40B25000840CCC /* Assets.xcassets in Resources */,
+				FB2065E11D40B25000840CCC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2065EA1D40B25000840CCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2065F51D40B25000840CCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2065FE1D40B25000840CCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2066091D40B25000840CCC /* Assets.xcassets in Resources */,
+				FB2066071D40B25000840CCC /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB20660D1D40B25000840CCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2066211D40B25000840CCC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB2065D41D40B25000840CCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2065DE1D40B25000840CCC /* ViewController.swift in Sources */,
+				FB2065DC1D40B25000840CCC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2065E81D40B25000840CCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2065F11D40B25000840CCC /* HomeWatchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB2065F31D40B25000840CCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB2065FC1D40B25000840CCC /* HomeWatchUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB20660B1D40B25000840CCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB20661B1D40B25000840CCC /* NotificationController.swift in Sources */,
+				FB2066191D40B25000840CCC /* ExtensionDelegate.swift in Sources */,
+				FB20661F1D40B25000840CCC /* ComplicationController.swift in Sources */,
+				FB2066171D40B25000840CCC /* InterfaceController.swift in Sources */,
+				FB20661D1D40B25000840CCC /* GlanceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB2065EE1D40B25000840CCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB2065D71D40B25000840CCC /* HomeWatch */;
+			targetProxy = FB2065ED1D40B25000840CCC /* PBXContainerItemProxy */;
+		};
+		FB2065F91D40B25000840CCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB2065D71D40B25000840CCC /* HomeWatch */;
+			targetProxy = FB2065F81D40B25000840CCC /* PBXContainerItemProxy */;
+		};
+		FB2066031D40B25000840CCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB2065FF1D40B25000840CCC /* HomeWatch WatchKit App */;
+			targetProxy = FB2066021D40B25000840CCC /* PBXContainerItemProxy */;
+		};
+		FB2066121D40B25000840CCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB20660E1D40B25000840CCC /* HomeWatch WatchKit Extension */;
+			targetProxy = FB2066111D40B25000840CCC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB2065DF1D40B25000840CCC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB2065E01D40B25000840CCC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FB2065E41D40B25000840CCC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB2065E51D40B25000840CCC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FB2066051D40B25000840CCC /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB2066061D40B25000840CCC /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB2066231D40B25000840CCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FB2066241D40B25000840CCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB2066261D40B25000840CCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				INFOPLIST_FILE = "HomeWatch WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mpmi.HomeWatch.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		FB2066271D40B25000840CCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				INFOPLIST_FILE = "HomeWatch WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mpmi.HomeWatch.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		FB20662A1D40B25000840CCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = HomeWatch_WatchKit_Extension;
+				INFOPLIST_FILE = "HomeWatch WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = mpmi.HomeWatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		FB20662B1D40B25000840CCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = HomeWatch_WatchKit_Extension;
+				INFOPLIST_FILE = "HomeWatch WatchKit App/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = mpmi.HomeWatch.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		FB20662E1D40B25000840CCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HomeWatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mpmi.HomeWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FB20662F1D40B25000840CCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = HomeWatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mpmi.HomeWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FB2066311D40B25000840CCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HomeWatchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mpmi.HomeWatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HomeWatch.app/HomeWatch";
+			};
+			name = Debug;
+		};
+		FB2066321D40B25000840CCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = HomeWatchTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mpmi.HomeWatchTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HomeWatch.app/HomeWatch";
+			};
+			name = Release;
+		};
+		FB2066341D40B25000840CCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HomeWatchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mpmi.HomeWatchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HomeWatch;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		FB2066351D40B25000840CCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = HomeWatchUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mpmi.HomeWatchUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = HomeWatch;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB2065D31D40B25000840CCC /* Build configuration list for PBXProject "HomeWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2066231D40B25000840CCC /* Debug */,
+				FB2066241D40B25000840CCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB2066251D40B25000840CCC /* Build configuration list for PBXNativeTarget "HomeWatch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2066261D40B25000840CCC /* Debug */,
+				FB2066271D40B25000840CCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FB2066291D40B25000840CCC /* Build configuration list for PBXNativeTarget "HomeWatch WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB20662A1D40B25000840CCC /* Debug */,
+				FB20662B1D40B25000840CCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FB20662D1D40B25000840CCC /* Build configuration list for PBXNativeTarget "HomeWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB20662E1D40B25000840CCC /* Debug */,
+				FB20662F1D40B25000840CCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FB2066301D40B25000840CCC /* Build configuration list for PBXNativeTarget "HomeWatchTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2066311D40B25000840CCC /* Debug */,
+				FB2066321D40B25000840CCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FB2066331D40B25000840CCC /* Build configuration list for PBXNativeTarget "HomeWatchUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB2066341D40B25000840CCC /* Debug */,
+				FB2066351D40B25000840CCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB2065D01D40B25000840CCC /* Project object */;
+}
