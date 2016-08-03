@@ -12,11 +12,20 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("Start!")
+        
+        //request-methode
 
     }
     
+    override func didReceiveMemoryWarning(){
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
-    func request(accountname: String, password: String, SHCSerial: String){
+    
+    func request(accountname: String, password: String, SHCSerial: String, CLIENTID: String, CLIENTSECRET: String){
     
         let request = NSMutableURLRequest(URL: NSURL(string:  "https://api.services-smarthome.de/AUTH/token")!)
         request.HTTPMethod = "POST"
@@ -24,8 +33,6 @@ class ViewController: UIViewController {
         request.setValue("application/json", forHTTPHeaderField: "ContentType")
         
         // Add Basic Authorization
-        let CLIENTID = "clientId"
-        let CLIENTSECRET = "clientPass"
         let loginString = NSString(format: "%@:%@", CLIENTID, CLIENTSECRET)
         let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
         let base64LoginString = loginData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions())
@@ -45,21 +52,32 @@ class ViewController: UIViewController {
             request.HTTPBody = data
         }else {
            // TODO
+            print("Error!")
         }
         
-        /* Connection
-        let connection = NSURLConnection(request: request, delegate: nil, startImmediately: false)
-        connection!.start()
-        */
+        
+        
+        // Connection
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) {
+            (
+            let data, let response, let error) in
+            
+            guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+                print("error")
+                return
+            }
+            
+            let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(dataString)
+            
+        }
+        
+        task.resume()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    
-    
 
 }
+
+
+
 
