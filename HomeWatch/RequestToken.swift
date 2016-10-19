@@ -15,7 +15,7 @@ class RequestToken{
     var UserName : String
     var Password : String
     
-    init(Grant_Type : String, Scope : String, UserName : String, Password : String){
+    init(Grant_Type : String, UserName : String, Password : String, Scope : String){
         self.Grant_Type = Grant_Type
         self.Scope = Scope
         self.UserName = UserName

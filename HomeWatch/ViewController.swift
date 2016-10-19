@@ -15,7 +15,8 @@ class ViewController: UIViewController {
         
         print("Start!")
         
-        //request-methode
+        //request-methode test
+        request("WHS", password: "H0chschule!", SHCSerial: "914100004433", CLIENTID: "94680176", CLIENTSECRET: "LgD1d8mWx0qHkG")
 
     }
     
@@ -24,13 +25,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     func request(accountname: String, password: String, SHCSerial: String, CLIENTID: String, CLIENTSECRET: String){
     
         let request = NSMutableURLRequest(URL: NSURL(string:  "https://api.services-smarthome.de/AUTH/token")!)
         request.HTTPMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("application/json", forHTTPHeaderField: "ContentType")
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
         // Add Basic Authorization
         let loginString = NSString(format: "%@:%@", CLIENTID, CLIENTSECRET)
@@ -44,17 +44,25 @@ class ViewController: UIViewController {
         let token = RequestToken(Grant_Type: "password", Scope: SHCSerial, UserName: accountname, Password: password)
         */
         
+        
+        let token = RequestToken(Grant_Type: "password", UserName: accountname, Password: password, Scope: SHCSerial);
+        
         // Json-String erstellen
         let json = ["Grant_Type": "password", "UserName": accountname, "Password": password, "Scope": SHCSerial]
+        
+
+        
+        
         let data : NSData = NSKeyedArchiver.archivedDataWithRootObject(json)
+
         
         if(NSJSONSerialization.isValidJSONObject(json)){
             request.HTTPBody = data
+            print(request)
         }else {
            // TODO
             print("Error!")
         }
-        
         
         
         // Connection
