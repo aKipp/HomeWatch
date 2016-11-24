@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +25,36 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Transforming Json to NSData
+    func jsonToNSData(json: AnyObject) -> NSData?{
+        do {
+            return try NSJSONSerialization.dataWithJSONObject(json, options: NSJSONWritingOptions.PrettyPrinted)
+        } catch let myJSONError {
+            print(myJSONError)
+        }
+        return nil;
+    }
+    
+    // Starting Session for Connection
+    func connection(request: NSURLRequest, data: NSData){
+        // Connection
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: configuration, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
+        
+        let task = session.uploadTaskWithRequest(request, fromData: data){
+            (let data, let response, let error) in
+            guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+                print("error")
+                return
+            }
+            let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print(dataString)
+        }
+        
+        task.resume()
+    }
+    
+    // Preparing Request for the Session
     func request(accountname: String, password: String, SHCSerial: String, CLIENTID: String, CLIENTSECRET: String){
     
         let request = NSMutableURLRequest(URL: NSURL(string:  "https://api.services-smarthome.de/AUTH/token")!)
@@ -44,44 +74,24 @@ class ViewController: UIViewController {
         let token = RequestToken(Grant_Type: "password", Scope: SHCSerial, UserName: accountname, Password: password)
         */
         
+        //        let token = RequestToken(Grant_Type: "password", UserName: accountname, Password: password, Scope: SHCSerial);
         
-        let token = RequestToken(Grant_Type: "password", UserName: accountname, Password: password, Scope: SHCSerial);
         
         // Json-String erstellen
         let json = ["Grant_Type": "password", "UserName": accountname, "Password": password, "Scope": SHCSerial]
-        
-
-        
-        
-        let data : NSData = NSKeyedArchiver.archivedDataWithRootObject(json)
 
         
         if(NSJSONSerialization.isValidJSONObject(json)){
-            request.HTTPBody = data
-            print(request)
+            request.HTTPBody = jsonToNSData(json)
+            print(json)
+            let content : NSData = NSData(data: jsonToNSData(json)!)
+            
+            connection(request, data: content)
         }else {
            // TODO
-            print("Error!")
+            print("Error! No Json")
         }
         
-        
-        // Connection
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request) {
-            (
-            let data, let response, let error) in
-            
-            guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
-                print("error")
-                return
-            }
-            
-            let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print(dataString)
-            
-        }
-        
-        task.resume()
     }
 
 }
