@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, NSURLSessionDelegate, NSURLSessionTaskDelegate, NSURLSessionDataDelegate {
+class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDataDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,9 +26,9 @@ class ViewController: UIViewController, NSURLSessionDelegate, NSURLSessionTaskDe
     }
     
     // Transforming Json to NSData
-    func jsonToNSData(json: AnyObject) -> NSData?{
+    func jsonToNSData(_ json: AnyObject) -> Data?{
         do {
-            return try NSJSONSerialization.dataWithJSONObject(json, options: NSJSONWritingOptions.PrettyPrinted)
+            return try JSONSerialization.data(withJSONObject: json, options: JSONSerialization.WritingOptions.prettyPrinted)
         } catch let myJSONError {
             print(myJSONError)
         }
@@ -36,36 +36,36 @@ class ViewController: UIViewController, NSURLSessionDelegate, NSURLSessionTaskDe
     }
     
     // Starting Session for Connection
-    func connection(request: NSURLRequest, data: NSData){
+    func connection(_ request: URLRequest, data: Data){
         // Connection
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: configuration, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
         
-        let task = session.uploadTaskWithRequest(request, fromData: data){
-            (let data, let response, let error) in
-            guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+        let task = session.uploadTask(with: request, from: data, completionHandler: {
+            (data, response, error) in
+            guard let _:Data = data, let _:URLResponse = response, error == nil else {
                 print("error")
                 return
             }
-            let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
             print(dataString)
-        }
+        })
         
         task.resume()
     }
     
     // Preparing Request for the Session
-    func request(accountname: String, password: String, SHCSerial: String, CLIENTID: String, CLIENTSECRET: String){
+    func request(_ accountname: String, password: String, SHCSerial: String, CLIENTID: String, CLIENTSECRET: String){
     
-        let request = NSMutableURLRequest(URL: NSURL(string:  "https://api.services-smarthome.de/AUTH/token")!)
-        request.HTTPMethod = "POST"
+        let request = NSMutableURLRequest(url: URL(string:  "https://api.services-smarthome.de/AUTH/token")!)
+        request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
         // Add Basic Authorization
         let loginString = NSString(format: "%@:%@", CLIENTID, CLIENTSECRET)
-        let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
-        let base64LoginString = loginData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions())
+        let loginData: Data = loginString.data(using: String.Encoding.utf8.rawValue)!
+        let base64LoginString = loginData.base64EncodedString(options: NSData.Base64EncodingOptions())
         request.setValue(base64LoginString, forHTTPHeaderField: "Authorization")
 
         /* Payload is
@@ -81,12 +81,12 @@ class ViewController: UIViewController, NSURLSessionDelegate, NSURLSessionTaskDe
         let json = ["Grant_Type": "password", "UserName": accountname, "Password": password, "Scope": SHCSerial]
 
         
-        if(NSJSONSerialization.isValidJSONObject(json)){
-            request.HTTPBody = jsonToNSData(json)
+        if(JSONSerialization.isValidJSONObject(json)){
+            request.httpBody = jsonToNSData(json as AnyObject)
             print(json)
-            let content : NSData = NSData(data: jsonToNSData(json)!)
+            let content : Data = NSData(data: jsonToNSData(json as AnyObject)!) as Data
             
-            connection(request, data: content)
+            connection(request as URLRequest, data: content)
         }else {
            // TODO
             print("Error! No Json")
