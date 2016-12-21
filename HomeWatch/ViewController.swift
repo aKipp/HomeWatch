@@ -66,7 +66,7 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
         let loginString = NSString(format: "%@:%@", CLIENTID, CLIENTSECRET)
         let loginData: Data = loginString.data(using: String.Encoding.utf8.rawValue)!
         let base64LoginString = loginData.base64EncodedString(options: NSData.Base64EncodingOptions())
-        request.setValue(base64LoginString, forHTTPHeaderField: "Authorization")
+        request.setValue(("Basic " + base64LoginString), forHTTPHeaderField: "Authorization")
 
         /* Payload is
         {Grant_Type: "password", UserName: "/* UN */", Password: "/* PWD */", Scope: ""}
