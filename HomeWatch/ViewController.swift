@@ -89,7 +89,7 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
             connection(request as URLRequest, data: content)
         }else {
            // TODO
-            print("Error! No Json")
+            print("Error! Not a Json string")
         }
         
     }
