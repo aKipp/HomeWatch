@@ -24,6 +24,7 @@
 		FB20661D1D40B25000840CCC /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB20661C1D40B25000840CCC /* GlanceController.swift */; };
 		FB20661F1D40B25000840CCC /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB20661E1D40B25000840CCC /* ComplicationController.swift */; };
 		FB2066211D40B25000840CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2066201D40B25000840CCC /* Assets.xcassets */; };
+		FB5903EC1F5045BB0074CCDC /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5903EB1F5045BB0074CCDC /* AccessToken.swift */; };
 		FBAB59391D4B791B00B2E959 /* RequestToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB59381D4B791B00B2E959 /* RequestToken.swift */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		FB20661E1D40B25000840CCC /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		FB2066201D40B25000840CCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB2066221D40B25000840CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB5903EB1F5045BB0074CCDC /* AccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		FBAB59381D4B791B00B2E959 /* RequestToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestToken.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +181,7 @@
 				FB2065E41D40B25000840CCC /* LaunchScreen.storyboard */,
 				FB2065E71D40B25000840CCC /* Info.plist */,
 				FBAB59381D4B791B00B2E959 /* RequestToken.swift */,
+				FB5903EB1F5045BB0074CCDC /* AccessToken.swift */,
 			);
 			path = HomeWatch;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				FB2065DE1D40B25000840CCC /* ViewController.swift in Sources */,
 				FBAB59391D4B791B00B2E959 /* RequestToken.swift in Sources */,
 				FB2065DC1D40B25000840CCC /* AppDelegate.swift in Sources */,
+				FB5903EC1F5045BB0074CCDC /* AccessToken.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
