@@ -10,13 +10,22 @@ import UIKit
 
 class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDataDelegate {
 
+    var requestDispatchGroup = DispatchGroup()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(">> Start!")
         
         //request-methode test
         request("WHS", password: "H0chschule!", SHCSerial: "914100004433", CLIENTID: "94680176", CLIENTSECRET: "LgD1d8mWx0qHkG")
+        
+        requestDispatchGroup.notify(queue: .main){
+            print("finish request")
+            //self.getInitialize()
+        }
+        
+        //print(">> Get Initialize")
+        //getInitialize()
         
         //print(">> Get Devices")
         //getDevices()
@@ -58,8 +67,9 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
             //Creating json-string from data
             do {
                 if let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as? [String:Any] {
-                    print(">> Json-String:")
+                    
                     print(json)
+                    
                     //reading Refresh-token from json-String
                     let refresh_token = json["refresh_token"] as? String
                     
@@ -69,6 +79,7 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
             } catch let err{
                 print(err.localizedDescription)
             }
+            self.requestDispatchGroup.leave()
         })
         
         task.resume()
@@ -76,7 +87,9 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
     
     // Preparing Request for the Session
     func request(_ accountname: String, password: String, SHCSerial: String, CLIENTID: String, CLIENTSECRET: String){
-    
+        
+        requestDispatchGroup.enter()
+        
         let request = NSMutableURLRequest(url: URL(string:  "https://api.services-smarthome.de/AUTH/token")!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Accept")
@@ -103,8 +116,6 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
         
         if(JSONSerialization.isValidJSONObject(json)){
             request.httpBody = jsonToNSData(json as AnyObject)
-            print(">> json:")
-            print(json)
             let content : Data = NSData(data: jsonToNSData(json as AnyObject)!) as Data
             
             connection(request as URLRequest, data: content)
@@ -112,7 +123,6 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
            // TODO
             print("Error! Not a Json string")
         }
-        
     }
         
         // Testing methods
@@ -140,7 +150,6 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
             
             if(JSONSerialization.isValidJSONObject(json)){
                 request.httpBody = jsonToNSData(json as AnyObject)
-                print(json)
                 let content : Data = NSData(data: jsonToNSData(json as AnyObject)!) as Data
                 
                 //TODO Return data in connection-method?
@@ -151,11 +160,46 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
             }
             
         }
+    
+        // Get Devices
+        func getInitialize(){
         
+        //TODO '/auth/'?
+        let request = NSMutableURLRequest(url: URL(string:  "https://api.services-smarthome.de/AUTH/initialize")!)
+        
+        //TODO httpmethod GET?
+        request.httpMethod = "GET"
+        
+        //connection()?
+        
+        //let session = NSURLSession.sharedSession()
+        //let task = session.dataTaskWithRequest(request, completionHandler:completionHandler)
+        //task.resume()
+        
+        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+            data, response, error in
+            
+            // Check for error
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+            // Print out response string
+            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+            print("Response")
+            print("responseString = \(responseString)")
+            
+        }
+        task.resume()
+        
+    }
+    
         // Get Devices
         func getDevices(){
             
-            //TODO '/auth/'? 
+            //TODO '/auth/'?
             let request = NSMutableURLRequest(url: URL(string:  "https://api.services-smarthome.de/AUTH/device")!)
             
             //TODO httpmethod GET?
