@@ -26,6 +26,7 @@
 		FB2066211D40B25000840CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2066201D40B25000840CCC /* Assets.xcassets */; };
 		FB5903EC1F5045BB0074CCDC /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5903EB1F5045BB0074CCDC /* AccessToken.swift */; };
 		FBAB59391D4B791B00B2E959 /* RequestToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB59381D4B791B00B2E959 /* RequestToken.swift */; };
+		FBB27D141F876C9D0073F9BD /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB27D131F876C9D0073F9BD /* Device.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		FB2066221D40B25000840CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB5903EB1F5045BB0074CCDC /* AccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		FBAB59381D4B791B00B2E959 /* RequestToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestToken.swift; sourceTree = "<group>"; };
+		FBB27D131F876C9D0073F9BD /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				FB2065E41D40B25000840CCC /* LaunchScreen.storyboard */,
 				FB2065E71D40B25000840CCC /* Info.plist */,
 				FBAB59381D4B791B00B2E959 /* RequestToken.swift */,
+				FBB27D131F876C9D0073F9BD /* Device.swift */,
 				FB5903EB1F5045BB0074CCDC /* AccessToken.swift */,
 			);
 			path = HomeWatch;
@@ -438,6 +441,7 @@
 				FBAB59391D4B791B00B2E959 /* RequestToken.swift in Sources */,
 				FB2065DC1D40B25000840CCC /* AppDelegate.swift in Sources */,
 				FB5903EC1F5045BB0074CCDC /* AccessToken.swift in Sources */,
+				FBB27D141F876C9D0073F9BD /* Device.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

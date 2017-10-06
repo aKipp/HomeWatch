@@ -10,18 +10,61 @@ import UIKit
 
 class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelegate, URLSessionDataDelegate {
 
+    //UI-Elements
+    
+    @IBOutlet weak var accountnameTextfield: UITextField!
+    @IBOutlet weak var passwordTextfield: UITextField!
+    
+    @IBOutlet weak var loginButton: UIButton!
+    
+    var accessToken: String = ""
+    
+    
     var requestDispatchGroup = DispatchGroup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
+    }
+    
+    override func didReceiveMemoryWarning(){
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func loginButtonAction(_ sender: UIButton) {
+        var name = self.accountnameTextfield.text
+        var pass = self.passwordTextfield.text
+        
+        
+        //TODO Input account-data
+        name = "WHS"
+        pass = "H0chschule!"
+        let serial = "914100004433"
+        
+        login(accountname: name!, password: pass!, scope: serial)
+        
+    }
+    
+    
+    func login(accountname: String, password: String, scope: String){
         //request-methode test
-        request("WHS", password: "H0chschule!", SHCSerial: "914100004433", CLIENTID: "94680176", CLIENTSECRET: "LgD1d8mWx0qHkG")
+        //request("WHS", password: "H0chschule!", SHCSerial: "914100004433", CLIENTID: "94680176", CLIENTSECRET: "LgD1d8mWx0qHkG")
+        
+        request(accountname, password: password, SHCSerial: scope, CLIENTID: "94680176", CLIENTSECRET: "LgD1d8mWx0qHkG")
         
         requestDispatchGroup.notify(queue: .main){
             print("finish request")
-            //self.getInitialize()
+            //self.initializeRequest(scope: scope)
+            //self.getDevices()
+            
+            
+            //redirect
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewController = storyBoard.instantiateViewController(withIdentifier: "overviewViewController") as! ViewController
+            self.present(newViewController, animated: true, completion: nil)
+            
         }
         
         //print(">> Get Initialize")
@@ -29,12 +72,6 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
         
         //print(">> Get Devices")
         //getDevices()
-
-    }
-    
-    override func didReceiveMemoryWarning(){
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // Transforming Json to NSData
@@ -71,9 +108,10 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
                     print(json)
                     
                     //reading Refresh-token from json-String
-                    let refresh_token = json["refresh_token"] as? String
+                    let refreshToken = json["refresh_token"] as! String
                     
                     //TODO Access-Token Object from Json-String
+                    self.accessToken = json["access_token"] as! String
                     
                 }
             } catch let err{
@@ -130,7 +168,7 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
         //TODO Post Token?
         
         // Refresh Token
-        func refreshToken(refreshToken: String, CLIENTID: String, CLIENTSECRET: String){
+        func refreshAccess(refreshToken: String, CLIENTID: String, CLIENTSECRET: String){
             
             let request = NSMutableURLRequest(url: URL(string:  "https://api.services-smarthome.de/AUTH/token")!)
             request.httpMethod = "POST"
@@ -153,7 +191,35 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
                 let content : Data = NSData(data: jsonToNSData(json as AnyObject)!) as Data
                 
                 //TODO Return data in connection-method?
-                connection(request as URLRequest, data: content)
+                //connection(request as URLRequest, data: content)
+                
+                let configuration = URLSessionConfiguration.default
+                let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
+                
+                let task = session.uploadTask(with: request as URLRequest, from: content, completionHandler: {
+                    (data, response, error) in
+                    guard let _:Data = data, let _:URLResponse = response, error == nil else {
+                        print("error with data while connected")
+                        return
+                    }
+                    //let dataString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                    //print(">> dataString:")
+                    //print(dataString)
+                    
+                    //Creating json-string from data
+                    do {
+                        if let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as? [String:Any] {
+                            
+                            print(json)
+                            
+                        }
+                    } catch let err{
+                        print(err.localizedDescription)
+                    }
+                })
+                
+                task.resume()
+                
             }else {
                 // TODO
                 print("Error! Not a Json string")
@@ -161,15 +227,17 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
             
         }
     
-        // Get Devices
-        func getInitialize(){
-        
+        // initialize
+    func initializeRequest(scope: String){
+        print("requesting initialize")
         //TODO '/auth/'?
-        let request = NSMutableURLRequest(url: URL(string:  "https://api.services-smarthome.de/AUTH/initialize")!)
+        let request = NSMutableURLRequest(url: URL(string:  "https://api.services-smarthome.de/AUTH/initialize/" + scope)!)
         
         //TODO httpmethod GET?
         request.httpMethod = "GET"
-        
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         //connection()?
         
         //let session = NSURLSession.sharedSession()
@@ -202,9 +270,14 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
             //TODO '/auth/'?
             let request = NSMutableURLRequest(url: URL(string:  "https://api.services-smarthome.de/AUTH/device")!)
             
+            print("AccessToken:")
+            print(accessToken)
+            
             //TODO httpmethod GET?
             request.httpMethod = "GET"
-            
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
             //connection()?
             
             //let session = NSURLSession.sharedSession()
