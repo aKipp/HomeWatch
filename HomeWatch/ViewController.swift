@@ -44,7 +44,6 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
         let serial = "914100004433"
         
         login(accountname: name!, password: pass!, scope: serial)
-        
     }
     
     
@@ -56,7 +55,7 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
         
         requestDispatchGroup.notify(queue: .main){
             print("finish request")
-            //self.initializeRequest(scope: scope)
+            self.initializeRequest(scope: scope)
             //self.getDevices()
             
             
@@ -250,15 +249,15 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
             // Check for error
             if error != nil
             {
-                print("error=\(error)")
+                print("error")
                 return
+            } else
+            {
+                // Print out response string
+                let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                print("Response")
+                print(responseString!)
             }
-            
-            // Print out response string
-            let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
-            print("Response")
-            print("responseString = \(responseString)")
-            
         }
         task.resume()
         
@@ -290,19 +289,75 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
                 // Check for error
                 if error != nil
                 {
-                    print("error=\(error)")
+                    print("error")
                     return
                 }
                 
                 // Print out response string
                 let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
                 print("Response")
-                print("responseString = \(responseString)")
+                print(responseString!)
                 
             }
             task.resume()
             
         }
+    
+    
+    
+    func testTokenRequest(){
+        print("requesting initialize")
+        
+        let CLIENTID = "94680176"
+        let CLIENTSECRET = "LgD1d8mWx0qHkG"
+        let accountname = "WHS"
+        let password = "H0chschule!"
+        let SHCSerial = "914100004433"
+        
+        
+        let request = NSMutableURLRequest(url: URL(string:  "https://api.services-smarthome.de/AUTH/token")!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        
+        // Add Basic Authorization
+        let loginString = NSString(format: "%@:%@", CLIENTID, CLIENTSECRET)
+        let loginData: Data = loginString.data(using: String.Encoding.utf8.rawValue)!
+        let base64LoginString = loginData.base64EncodedString(options: NSData.Base64EncodingOptions())
+        request.setValue(("Basic " + base64LoginString), forHTTPHeaderField: "Authorization")
+        
+        let json = ["Grant_Type": "password", "UserName": accountname, "Password": password, "Scope": SHCSerial]
+        
+        
+        if(JSONSerialization.isValidJSONObject(json)){
+            request.httpBody = jsonToNSData(json as AnyObject)
+            let content : Data = NSData(data: jsonToNSData(json as AnyObject)!) as Data
+            
+            let task = URLSession.shared.dataTask(with: request as URLRequest) {
+                data, response, error in
+                
+                // Check for error
+                if error != nil
+                {
+                    print("error")
+                    return
+                } else
+                {
+                    // Print out response string
+                    let responseString = NSString(data: data!, encoding: String.Encoding.utf8.rawValue)
+                    print("Response")
+                    print(responseString!)
+                }
+            }
+            task.resume()
+            
+            
+        }else {
+            // TODO
+            print("Error! Not a Json string")
+        }
+    }
+    
     
 //EOF
 }
