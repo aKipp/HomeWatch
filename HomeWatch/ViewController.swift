@@ -37,10 +37,20 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
         //var name = self.accountnameTextfield.text
         //var pass = self.passwordTextfield.text
         
-        print("Login")
-        //login(accountname: name, password: pass, scope: serial)
-        print("Initialize")
-        print("Devices")
+        let accountname = "WHS"
+        let password = "H0chschule!"
+        let SHCSerial = "914100004433"
+        
+        let CLIENTID = "94680176"
+        let CLIENTSECRET = "LgD1d8mWx0qHkG"
+        
+        
+            print("============ Refresh ============")
+            self.refreshAccess(refreshToken: "36f17477a96c4205b46dea65d96a007c", CLIENTID: CLIENTID, CLIENTSECRET: CLIENTSECRET)
+
+        
+        //login(accountname: accountname, password: password, scope: SHCSerial)
+        //Redirect in-App
         
     }
     
@@ -51,12 +61,16 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
         
         request(accountname, password: password, SHCSerial: scope, CLIENTID: "94680176", CLIENTSECRET: "LgD1d8mWx0qHkG")
         
+        accessToken = ""
+        
         requestDispatchGroup.notify(queue: .main){
-            print("finish request")
-            //self.initializeRequest(scope: scope)
-            //self.getDevices()
-            
-            
+            print("devices")
+            self.getDevices()
+        }
+        
+        print("end devices")
+        
+        requestDispatchGroup.notify(queue: .main){
             //redirect
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "overviewViewController") as! ViewController
@@ -208,7 +222,6 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
                     if let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as? [String:Any] {
                         
                         print(json)
-                        
                     }
                 } catch let err{
                     print(err.localizedDescription)
