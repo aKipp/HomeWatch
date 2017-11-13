@@ -37,21 +37,10 @@ class ViewController: UIViewController, URLSessionDelegate, URLSessionTaskDelega
         //var name = self.accountnameTextfield.text
         //var pass = self.passwordTextfield.text
         
-        
-        //TODO Input account-data
-        let name = "WHS"
-        let pass = "H0chschule!"
-        let serial = "914100004433"
-        
+        print("Login")
         //login(accountname: name, password: pass, scope: serial)
-        
-        //https://home.innogy-smarthome.de/#/auth?code=1d97de9136fe49d7923907a887f59c11&state=f5d844d0-e245-443f-809b-71c1bd6f4911&_k=imogw9
-
-        let code = "1d97de9136fe49d7923907a887f59c11"
-        let id = "94680176"
-        let sec = "LgD1d8mWx0qHkG"
-        
-        accessAuthCode(authCode: code, CLIENTID: id, CLIENTSECRET: sec)
+        print("Initialize")
+        print("Devices")
         
     }
     
