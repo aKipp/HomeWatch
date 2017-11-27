@@ -25,6 +25,7 @@
 		FB20661F1D40B25000840CCC /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB20661E1D40B25000840CCC /* ComplicationController.swift */; };
 		FB2066211D40B25000840CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB2066201D40B25000840CCC /* Assets.xcassets */; };
 		FB5903EC1F5045BB0074CCDC /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5903EB1F5045BB0074CCDC /* AccessToken.swift */; };
+		FB6E2CF51FCC04B8005ECEDA /* ViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6E2CF41FCC04B8005ECEDA /* ViewControllerTest.swift */; };
 		FBAB59391D4B791B00B2E959 /* RequestToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAB59381D4B791B00B2E959 /* RequestToken.swift */; };
 		FBB27D141F876C9D0073F9BD /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB27D131F876C9D0073F9BD /* Device.swift */; };
 /* End PBXBuildFile section */
@@ -113,6 +114,7 @@
 		FB2066201D40B25000840CCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB2066221D40B25000840CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB5903EB1F5045BB0074CCDC /* AccessToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
+		FB6E2CF41FCC04B8005ECEDA /* ViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTest.swift; sourceTree = "<group>"; };
 		FBAB59381D4B791B00B2E959 /* RequestToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestToken.swift; sourceTree = "<group>"; };
 		FBB27D131F876C9D0073F9BD /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +187,7 @@
 				FBAB59381D4B791B00B2E959 /* RequestToken.swift */,
 				FBB27D131F876C9D0073F9BD /* Device.swift */,
 				FB5903EB1F5045BB0074CCDC /* AccessToken.swift */,
+				FB6E2CF41FCC04B8005ECEDA /* ViewControllerTest.swift */,
 			);
 			path = HomeWatch;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 			files = (
 				FB2065DE1D40B25000840CCC /* ViewController.swift in Sources */,
 				FBAB59391D4B791B00B2E959 /* RequestToken.swift in Sources */,
+				FB6E2CF51FCC04B8005ECEDA /* ViewControllerTest.swift in Sources */,
 				FB2065DC1D40B25000840CCC /* AppDelegate.swift in Sources */,
 				FB5903EC1F5045BB0074CCDC /* AccessToken.swift in Sources */,
 				FBB27D141F876C9D0073F9BD /* Device.swift in Sources */,
